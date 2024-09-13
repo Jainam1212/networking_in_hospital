@@ -1,0 +1,107 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+*::-webkit-scrollbar {
+    display: none;
+}
+.navbar {
+    width: 100%;
+    height: 70px;
+    background: #00c6a9;
+}
+.navbar_class{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.logo img{
+    height: 70px;
+    width: auto;
+    object-fit: cover;
+    margin-left: 20px;
+}
+.logo{
+    width: 20%;
+}
+.list{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.list ul li a{
+    text-decoration: none;
+    color: white;
+    transition: .5s;
+    font-size: large;
+}
+.list ul li{
+    list-style: none;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.list ul{
+    display: flex;
+    flex-direction: row;
+}
+.list ul li a:hover{
+    color: #002c25;
+}
+.contact{
+    height: fit-content;
+    width: 100%;
+    height: 140vh;
+    display: flex;
+    flex-direction: row;
+}
+.formarea{
+    width: 50%;
+    text-align: center;
+}
+.formarea h1{
+    margin-top: 3%;
+    color: #00c6a9;
+}
+.formarea form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.formarea form input,.formarea form select{
+    box-sizing: border-box;
+    width: 80%;
+    margin: auto;
+    margin-top: 4%;
+    font-size: 30px;
+    border: 1px solid #00c6a9;
+    border-radius: 5px;
+    padding: 10px;
+    color: #00c6a9;
+}
+.formarea form input::placeholder{
+    color: #00c6a9;
+}
+.formarea form button{
+    cursor: pointer;
+    width: 30%;
+    height: fit-content;
+    padding: 10px;
+    color: white;
+    background-color: #00c6a9;
+    border: 1px solid #00c6a9;
+    border-radius: 5px;
+    margin-top: 5%;
+}
+.picture{
+    display: flex;
+    width: 50%;
+    justify-content: center;
+}
+.picture img{
+    height: 400px;
+    width: 400px;
+    margin: 10%;
+    object-fit: cover;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UserRegister</title>
+    style 
+      include ../css//loginregister.css
+</head>
+<body>
+    <section>
+    <div class="outerbox">
+        <div class="loginregister">
+            <h2 style="color: #00c6a9;">Register Here</h2>
+        </div>
+        <div class="customer_register">
+        p.errors #{locals.error1}
+        p.errors #{locals.error2}
+            <form action="/poststaffregister" method="post">
+                <input type="text" name="staffname" placeholder="Enter unique username" required>
+                <select name="staffstate" id="state">
+                    <option value="">--Please choose a state</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Maharastra">Maharastra</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="MadhyaPradesh">Madhya Pradesh</option>
+                    <option value="Hyderabad">Hyderabad</option>
+                    <option value="Tamilnadu">Tamilnadu</option>
+                </select>
+                <input type="text" name="staffcity" placeholder="enter your city" value="#{locals.staffcity}">
+                <select name="worksIn" id="state">
+                    <option value="">--Please choose a hospital</option>
+                    <option value="Apollo Hospitals">Apollo Hospitals</option>
+                    <option value="Zydus Hospital">Zydus Hospital</option>
+                    <option value="KD Hospital">KD Hospital</option>
+                    <option value="BJ medical">BJ medical</option>
+                    <option value="GMERS Hospital">GMERS Hospital</option>
+                    <option value="Shalby Hospital">Shalby Hospital</option>
+                    <option value="VS Clinic">VS Clinic</option>
+                </select>
+                <input type="tel" name="staffcontact" placeholder="Enter your contact info" value="#{locals.staffcontact}" pattern="^\d{10}$" size="10" required title="Enter valid contact number">
+                <input type="email" name="staffemail" placeholder="Enter your email" value="#{locals.staffemail}" required title="please enter valid email">
+                <input type="password" name="staffpassword" placeholder="Enter a password" required>
+                <input type="password" name="staffpasswordverify" placeholder="confirm your password">
+                <button type="submit">Register</button>
+            </form>
+        </div>
+        <div class="loginmsg">
+            <p>Have account? Click here <a href="/stafflogin">login</a></p>
+        </div>
+    </div>
+    </section>
+</body>
+</html>

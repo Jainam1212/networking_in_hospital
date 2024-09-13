@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UserLogin</title>
+    style 
+      include ../css//loginregister.css
+</head>
+<body>
+    <section>
+    <div class="outerbox">
+        <div class="loginregister">
+            <h2 style="color: #00c6a9;">Login Here</h2>
+        </div>
+        <div class="customer_login">
+            p.errors #{locals.message}
+            <form action="/patientlogin" method="post">
+                <input type="text" name="username" placeholder="Enter a username" value="#{locals.username}" required>
+                <input type="password" name="password" placeholder="Enter a password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+        <div class="registermsg">
+            <p>Don't have an account? Create one here <a href="/patientregister">Register</a></p>
+        </div>
+    </div>
+    </section>
+</body>
+</html>

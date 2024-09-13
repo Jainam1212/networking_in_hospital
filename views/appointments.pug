@@ -1,0 +1,275 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title MedWellJunction
+    style 
+      include ../css/bootstrap.css
+      include ../css/font-awesome.min.css
+      include ../css/style.css
+      include ../css/responsive.css
+      include ../css/appointments.css
+    link(href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet")
+    link(rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css")
+    link(href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" rel="stylesheet" integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4=" crossorigin="anonymous")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css")
+    style.
+      .header_bottom {
+          position: fixed;
+          z-index: 1;
+          width: 100%;
+      }
+      *::-webkit-scrollbar{
+          display: none;
+      }
+
+      .navbar-brand {
+          z-index: 1;
+      }
+
+      .slider123 {
+          width: 100%;
+          overflow: hidden;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+      }
+
+      .slider-inner123 {
+          display: flex;
+          width: 100%;
+          transition: transform 0.5s;
+      }
+
+      .slider-item123 {
+          height: 250px;
+          width: 250px;
+          margin: 20px;
+          box-sizing: border-box;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+      .slider-item123 img{
+          height: 150px;
+          width: 150px;
+          background-size: cover;
+      }
+      .slider-content123{
+          display: flex;
+          flex-direction: row;
+          /* height: 250px; */
+          /* width: 250px; */
+      }
+      .testimonial123 {
+          height: 100%;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          background-color: #f3f3f3;
+          padding: 32px;
+          box-sizing: border-box;
+          border-radius: 8px;
+          text-align: center;
+      }
+
+      .slider-prev-btn,
+      .slider-next-btn {
+          width: 105px;
+          height: 50px;
+          background: #ccc;
+          border: none;
+          color: #fff;
+          font-size: 24px;
+          cursor: pointer;
+          margin: 0 10%;
+          /* position: absolute; */
+          top: 50%;
+          /* transform: translateY(-50%); */
+          padding: 8px;
+          box-sizing: border-box;
+      }
+
+      .forth_back{
+          display: flex;
+          justify-content: center;
+      }
+      .slider-prev-btn {
+          left: 0;
+      }
+
+      .slider-next-btn {
+          right: 0;
+      }
+      *::-webkit-scrollbar{
+        display: none;
+      }
+    script.
+      const sliderInner = document.querySelector(".slider-inner123");
+      const prevButton = document.querySelector(".slider-prev-btn");
+      const nextButton = document.querySelector(".slider-next-btn");
+
+      let currentSlide1 = 0;
+
+      function goToSlide(slide1) {
+        sliderInner.style.transform = `translateX(-${slide1 * 100}%)`;
+        currentSlide1 = slide1;
+      }
+
+      function nextSlide() {
+        if (currentSlide1 === 1) {
+          goToSlide(0);
+        } else {
+          goToSlide(currentSlide1 + 1);
+        }
+      }
+
+      function prevSlide() {
+        if (currentSlide1 === 0) {
+          goToSlide(1);
+        } else {
+          goToSlide(currentSlide1 - 1);
+        }
+      }
+
+      nextButton.addEventListener("click", nextSlide);
+      prevButton.addEventListener("click", prevSlide);
+
+
+  body
+    //- header section strats
+    header.header_section(style="height:76px")
+      .header_bottom
+        .container-fluid
+          nav.navbar.navbar-expand-lg.custom_nav-container 
+            a.navbar-brand(href="index.html")
+              img(src="/images/logo.jpg", alt="")
+            .collapse.navbar-collapse#navbarSupportedContent
+              .d-flex.mr-auto.flex-column.flex-lg-row.align-items-center
+                ul.navbar-nav
+                  li.nav-item
+                    a.nav-link(href="/home") Home
+                  li.nav-item
+                    a.nav-link(href="/treatment") Treatment
+                  li.nav-item.active
+                    a.nav-link(href="/appointments") Profile
+                  li.nav-item
+                    a.nav-link(href=locals.getlink) #{locals.buttonname}
+              .quote_btn-container
+                a(href="/contact")
+                  i.fa.fa-user(aria-hidden="true")
+                  span Book Appointment
+
+    //- Appointments table
+    section.appointment_data
+      table#appointments_table 
+        thead 
+          tr 
+            th Patient 
+            th Age
+            th Email 
+            th Hospital 
+            th Prescription
+            th Date 
+            th Time
+
+        tbody 
+          // Iterate over each appointment and render its details
+          each appointment in appointmentList
+            tr
+              td= appointment.patientname 
+              td= appointment.patientage 
+              td= appointment.patientemail
+              td= appointment.patienthospital
+              td= appointment.medicines
+              td= appointment.patientdate 
+              td= appointment.patienttime
+
+    //- info section
+    section.info_section 
+      .container
+        .info_bottom.layout_padding2
+          .row.info_main_row
+            .col-md-6.col-lg-3
+              h5 Address
+              .info_contact
+                a(href="")
+                  i.fa.fa-map-marker(aria-hidden="true")
+                  span New lj college, Pakwan Cross road.
+                a(href="")
+                  i.fa.fa-phone(aria-hidden="true")
+                  span Call +91 9234567890
+                a(href="")
+                  i.fa.fa-envelope
+                  span jainamkp1214@gmail.com
+              .social_box
+                a(href="")
+                  i.fa.fa-facebook(aria-hidden="true")
+                a(href="")
+                  i.fa.fa-twitter(aria-hidden="true")
+                a(href="")
+                  i.fa.fa-linkedin(aria-hidden="true")
+                a(href="")
+                  i.fa.fa-instagram(aria-hidden="true")
+            .col-md-6.col-lg-3
+              .info_links
+                h5 Useful link
+                .info_links_menu
+                  a.active(href="index.html") Home
+                  a(href="about.html") About
+                  a(href="treatment.html") Treatment
+                  a(href="doctor.html") Doctors
+                  a(href="testimonial.html") Testimonial
+                  a(href="contact.html") Contact us
+            .col-md-6.col-lg-3
+              .info_post
+                h5 LATEST POSTS
+                .post_box
+                  .img-box
+                    img(src="/images/post1.jpg", alt="")
+                  p Normal distribution
+                .post_box
+                  .img-box
+                    img(src="/images/post2.jpg", alt="")
+                  p Normal distribution
+            .col-md-6.col-lg-3
+              .info_post
+                h5 News
+                .post_box
+                  .img-box
+                    img(src="/images/post3.jpg", alt="")
+                  p Normal distribution
+                .post_box
+                  .img-box
+                    img(src="/images/post4.png", alt="")
+                  p Normal distribution
+
+    //- footer section
+    footer.footer_section
+      .container
+        p
+          | © 
+          span#displayYear
+          |  All Rights Reserved By
+          a(href="https://html.design/") Continental Guardians
+
+  script 
+    include ../js/jquery-3.4.1.min.js
+  script 
+    include ../js/bootstrap.js
+  script 
+    include ../js/custom.js
+  script 
+    include ../js/dbms.js
+  script 
+    include ../js/read.js
+  script 
+    include ../js/script.js
+  script(type="module") 
+    include ../js/appointmentdata.js
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js" integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js")

@@ -1,0 +1,45 @@
+.appointment_data{
+    width: 100%;
+}
+#appointments_table{
+    width: 100%;
+}
+.appointment_data table{
+    border-collapse: collapse;
+}
+.appointment_data table th,.appointment_data table td{
+    border: 1px solid #00c6a9;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.appointment_data table td{
+    text-align: start;
+    font-size: 18px;
+    color: black;
+}
+#appointments_table thead th{
+    text-align: center;
+    font-size: 30px;
+    color: #00c6a9;
+}
+#appointments_table thead tr th:nth-child(1){
+    width: 10%;
+}
+#appointments_table thead tr th:nth-child(2) {
+    width: 5%;
+}
+#appointments_table thead tr th:nth-child(3) {
+    width: 10%;
+}
+#appointments_table thead tr th:nth-child(4) {
+    width: 20%;
+}
+#appointments_table thead tr th:nth-child(5) {
+    width: 15%;
+}
+#appointments_table thead tr th:nth-child(6) {
+    width: 15%;
+}
+#appointments_table thead tr th:nth-child(7) {
+    width: 15%;
+}

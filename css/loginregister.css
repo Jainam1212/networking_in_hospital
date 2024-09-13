@@ -1,0 +1,102 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: url('/images/hospitalimg.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+*::-webkit-scrollbar {
+    display: none;
+}
+section {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(0, 229, 255);
+}
+
+.errors {
+    color: rgb(255, 0, 0);
+    font-size: 20px;
+    margin: 5px;
+}
+
+p {
+    text-align: center;
+    color: #00ff88;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+option {
+    color: black;
+}
+
+input,
+select {
+    color: #00ff88;
+    margin: 10px;
+    width: 80%;
+    padding: 10px;
+    font-weight: 15px;
+    background: transparent;
+    border: 1px solid #00ff88;
+    border-radius: 10px;
+}
+
+button {
+    background: transparent;
+    border: 1px solid #00ff88;
+    border-radius: 10px;
+    padding: 10px;
+    font-weight: 15px;
+    cursor: pointer;
+    color: #00c6a9;
+    margin: 10px;
+}
+
+::placeholder {
+    color: #00ff88;
+}
+
+.outerbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #000000b8;
+    width: 40vw;
+    border-radius: 10px;
+}
+
+.loginregister {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.customer_register,
+.customer_login {
+    width: 100%;
+}
+
+.loginmsg,
+.registermsg {
+    display: flex;
+    text-align: center;
+}
